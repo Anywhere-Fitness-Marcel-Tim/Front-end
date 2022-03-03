@@ -47,14 +47,6 @@ body {
     margin: 1rem;
 }
 
-.button-style:hover {
-    background: rgba(196, 196, 196, 0.8);
-}
-
-.about-top-container button:hover {
-    background: rgba(196, 196, 196, 0.8);
-}
-
 
 .about-middle{
     margin-top: 2rem;
@@ -84,13 +76,4 @@ body {
 .about-bottom-container button{
     margin: 1rem;
     padding: .5rem;
-}
-
-.about-bottom-container button:last-child{
-    background:rgba(110, 78, 255, 1);
-    color: white;
-}
-
-.about-bottom-container button:last-child:hover{
-    background: rgba(110, 78, 255, .9);
 }

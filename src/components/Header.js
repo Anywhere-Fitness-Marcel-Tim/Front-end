@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link, useLocation} from 'react-router-dom'
+import {Button} from '@mui/material'
 function Header() {
     const currentRoute = useLocation()
   return (
@@ -10,7 +11,7 @@ function Header() {
                 <Link className={currentRoute.pathname === '/trainers'? 'current-page' : ''} to='/trainers' >Our Trainers</Link>
                 <Link className={currentRoute.pathname === '/quotes'? 'current-page' : ''} to='/quotes' >Request a quote</Link>
                 <span className='Login-Link'>
-                <Link to='/login' >Login</Link>
+                <Button variant='contained'><Link to='/login' >Login</Link></Button>
                 </span>
             </nav>
         </header>

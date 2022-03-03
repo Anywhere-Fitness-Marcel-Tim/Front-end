@@ -1,5 +1,6 @@
 import React from 'react'
-import image1 from '../assets/fitnessimage1.jpg'
+import {Link} from 'react-router-dom'
+import {Button} from '@mui/material'
 
 function AboutUs() {
   return (
@@ -9,7 +10,7 @@ function AboutUs() {
           <div className='about-top-right-content'>
           <h2>Bring The Fitness To You</h2>
           <h2>Anywhere...</h2>
-          <button className='button-style'>Schedule Now!</button>
+          <Link to='/login'><Button variant='contained'>Schedule Now!</Button></Link>
           </div>
         </div>
       </div>
@@ -27,8 +28,8 @@ function AboutUs() {
         <div className='about-bottom-container'>
           <h2>We Do Private Sessions</h2>
           <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</p>
-          <button className='button-style'>Learn More</button>
-          <button className='button-style'>Request A Quote!</button>
+          <Button variant='outlined'>Learn More</Button>
+          <Link to='/quotes'><Button variant='contained'>Request A Quote!</Button></Link>
         </div>
       </span>
     </div>
