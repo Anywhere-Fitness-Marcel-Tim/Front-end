@@ -1,10 +1,25 @@
 import './App.css';
+import './styles/header.css'
+import './styles/about.css'
+import AboutUs from './pages/AboutUs'
+import TrainersPage from './pages/TrainersPage';
+import RequestQuotePage from './pages/RequestQuotePage';
+import NotFound from './pages/NotFound';
+import Header from './components/Header';
+import Login from './pages/Login';
 
+import {Routes, Route} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
-      <h3>Anywhere fitness Web App</h3>
+      <Header />
+      <Routes>
+        <Route path='/' element={<AboutUs />}/>
+        <Route path='/trainers' element={<TrainersPage />}/>
+        <Route path='/quotes' element={<RequestQuotePage />}/>
+        <Route path='/login' element={<Login />}/>
+        <Route path='*' element={<NotFound />} />
+      </Routes>
     </div>
   );
 }
