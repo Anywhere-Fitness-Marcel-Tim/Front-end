@@ -1,6 +1,7 @@
 import './App.css';
 import './styles/header.css'
 import './styles/about.css'
+import './styles/trainer.css'
 import AboutUs from './pages/AboutUs'
 import TrainersPage from './pages/TrainersPage';
 import RequestQuotePage from './pages/RequestQuotePage';

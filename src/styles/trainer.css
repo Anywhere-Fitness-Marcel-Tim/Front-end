@@ -1,0 +1,24 @@
+.trainer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.trainer-card {
+    border: 1px solid #4f4f4f;
+    width: 90%;
+    height: 20vh;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trainer-card div {
+    width: 25%;
+}
+
+.view-profile {
+    width: 15rem;
+}

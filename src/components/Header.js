@@ -4,7 +4,8 @@ import {Button} from '@mui/material'
 function Header() {
     const currentRoute = useLocation()
   return (
-        <header>
+        <div>
+            <header>
             <h2 className='Logo'><Link to='/'>Anywhere fitness</Link></h2>
             <nav>
                 <Link className={currentRoute.pathname === '/'? 'current-page' : ''} to='/' >About us</Link>
@@ -15,6 +16,7 @@ function Header() {
                 </span>
             </nav>
         </header>
+        </div>
   )
 }
 

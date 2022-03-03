@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {Button} from '@mui/material'
 
 function AboutUs() {
+
   return (
     <div className='about-container'>
       <div className='about-top-container'>
@@ -32,6 +33,11 @@ function AboutUs() {
           <Link to='/quotes'><Button variant='contained'>Request A Quote!</Button></Link>
         </div>
       </span>
+      <footer className='footer'>
+        <div>
+          <p> copyright © Fitness Anywhere LLC</p>
+        </div>
+      </footer>
     </div>
   )
 }

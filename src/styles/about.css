@@ -47,20 +47,19 @@ body {
     margin: 1rem;
 }
 
-
-.about-middle{
+.about-middle {
     margin-top: 2rem;
     display: flex;
     justify-content: space-around;
     height: 20vh;
 }
-.about-middle div{
+.about-middle div {
     line-height: 2;
     font-weight: 500;
     width: 30%;
 }
 
-.about-bottom{
+.about-bottom {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,12 +67,12 @@ body {
     font-weight: 500;
 }
 
-.about-bottom-container{
+.about-bottom-container {
     margin-top: 5rem;
     width: 50%;
 }
 
-.about-bottom-container button{
+.about-bottom-container button {
     margin: 1rem;
-    padding: .5rem;
+    padding: 0.5rem;
 }
