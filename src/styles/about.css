@@ -1,0 +1,48 @@
+.about-top-container {
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.about-top-container img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 0.5rem;
+}
+
+.about-top-container h2 {
+    font-size: 2.4rem;
+    padding: 1.5rem;
+    margin: 1rem;
+}
+
+.about-top-container button {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 0.2rem;
+    background: #c4c4c4;
+    cursor: pointer;
+}
+
+.about-top-container button:hover {
+    background: rgba(196, 196, 196, 0.8);
+}
+
+.about-middle {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.what-we-do,
+.what-we-stand {
+    border: 1px solid #4f4f4f;
+    width: 30%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
