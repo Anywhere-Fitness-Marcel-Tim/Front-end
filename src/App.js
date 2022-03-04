@@ -18,13 +18,13 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route exact path='/' element={<AboutUs />}/>
-        <Route path='/trainers' element={<TrainersPage />}/>
-        <Route path='/quotes' element={<RequestQuotePage />}/>
-        <Route path='/login' element={<Login />}/>
-        <Route path='/logout' element={<Logout />}/>
-        <Route path='/signup' element={<Signup />}/>
-        <Route path='*' element={<NotFound />} />
+          <Route path='/' element={<AboutUs />}/>
+          <Route path='/trainers' element={<TrainersPage />}/>
+          <Route path='/quotes' element={<RequestQuotePage />}/>
+          <Route path='/login' element={<Login />}/>
+          <Route path='/logout' element={<Logout />}/>
+          <Route path='/signup' element={<Signup />}/>
+          <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );

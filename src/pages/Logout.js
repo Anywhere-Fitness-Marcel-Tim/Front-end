@@ -1,11 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
 const Logout = () => {
-  let navigate  = useNavigate();
-  localStorage.removeItem("token");
-  navigate("/");
-
+    let navigate  = useNavigate();
+    useEffect(()=>{ 
+        localStorage.removeItem("token");
+        navigate("/");
+    })
   return <div></div>;
 };
 
