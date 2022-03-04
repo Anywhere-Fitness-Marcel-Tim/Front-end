@@ -9,6 +9,7 @@ import TrainersPage from './pages/TrainersPage';
 import RequestQuotePage from './pages/RequestQuotePage';
 import NotFound from './pages/NotFound';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Classes from './pages/Classes'
@@ -31,6 +32,7 @@ function App() {
           <Route path='/signup' element={<Signup />}/>
           <Route path='*' element={<NotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

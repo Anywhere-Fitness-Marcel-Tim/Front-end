@@ -24,7 +24,7 @@ function TrainersPage(props) {
     <div>
       <div className='trainer-container'>
         {load && <img src={spinner} alt='loading'/>}
-        {!load && users.map(user => {
+        {users && users.map(user => {
           if(user.role_name === 'trainer'){
             return <div className='trainer-card'>
               <div className='trainer-info'>
@@ -49,11 +49,6 @@ function TrainersPage(props) {
           }
         })}
     </div>
-    <footer className='footer'>
-        <div>
-          <p> copyright © Fitness Anywhere LLC</p>
-        </div>
-      </footer>
     </div>
   )
 }

@@ -1,29 +1,69 @@
 import React from 'react'
+import RadioGroup, { useRadioGroup } from '@mui/material/RadioGroup'
+import { styled } from '@mui/material/styles';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Radio from '@mui/material/Radio';
 
 function RequestQuotePage() {
+
+  const StyledFormControlLabel = styled((props) => <FormControlLabel {...props} />)(
+    ({ theme, checked }) => ({
+      '.MuiFormControlLabel-label': checked && {
+        color: theme.palette.primary.main,
+      },
+    }),
+  );
+
+  function MyFormControlLabel(props) {
+    const radioGroup = useRadioGroup();
+  
+    let checked = false;
+  
+    if (radioGroup) {
+      checked = radioGroup.value === props.value;
+    }
+  
+    return <StyledFormControlLabel checked={checked} {...props} />;
+  }
+
+  function MySecondFormControl(props) {
+    const radioGroup2 = useRadioGroup();
+  
+    let checked = false;
+  
+    if (radioGroup2) {
+      checked = radioGroup2.value === props.value;
+    }
+
+    return <StyledFormControlLabel checked={checked} {...props} />
+  }
+
   return (
     <div className='quotes-container'>
         <div className='quotes-card'>
+        <h2>What are you looking for?</h2>
           <div className='options'>
             <div className='business-options'>
-              <input className='' type='radio' value='Business' name='session-type' /> Business
+            <RadioGroup name="use-radio-group2" defaultValue="Business">
+            <MySecondFormControl value="Business" name='session' label="Business" control={<Radio />} />
+            </RadioGroup>
               <h2>Company Size</h2>
-              <label>SMB (10-100 employees)</label>
-              <input className='' type='radio' value='SMB' name='company-size' /> 
-              <label>Large Business (100-300 employees)</label>
-              <input className='' type='radio' value='Large' name='company-size' /> 
-              <label>Corporation (500-1000 employees)</label>
-              <input className='' type='radio' value='Corp' name='company-size' /> 
+              <RadioGroup name="use-radio-group" defaultValue="first">
+              <MyFormControlLabel value="first" label="SMB (10-100 employees)" control={<Radio />} />
+              <MyFormControlLabel value="second" label="Large Business (100-300 employees)" control={<Radio />} />
+              <MyFormControlLabel value="third" label="Corporation (500-1000 employees)" control={<Radio />} />
+              </RadioGroup>
             </div>
             <div className='personal-options'>
-            <input className='' type='radio' value='Personal' name='session-type' /> Personal
-              <h2>Event Type</h2>
-              <label>Community Event</label>
-              <input className='' type='radio' value='comm-event' name='evt-type' /> 
-              <label>Fitness Party</label>
-              <input className='' type='radio' value='fitness-party' name='evt-type' /> 
-              <label>Family Gathering</label>
-              <input className='' type='radio' value='family-gathering' name='evt-type' /> 
+            <RadioGroup name="use-radio-group2" defaultValue="Business">
+            <MySecondFormControl value="Private" name='session' label="Private" control={<Radio />} />
+            </RadioGroup>
+              <h2>Session Type</h2>
+              <RadioGroup name="use-radio-group" defaultValue="first">
+              <MyFormControlLabel value="first" label="Community Event" control={<Radio />} />
+              <MyFormControlLabel value="second" label="Fitness Party" control={<Radio />} />
+              <MyFormControlLabel value="third" label="Family Gathering" control={<Radio />} />
+              </RadioGroup>
             </div>
           </div>
           <div className='contact-info'>

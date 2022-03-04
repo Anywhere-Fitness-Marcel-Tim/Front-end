@@ -1,31 +1,34 @@
-.quotes-container {
+.quotes-container{
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2rem;
 }
 
-.quotes-card {
-    display: flex;
-    flex-direction: column;
-    height: 80vh;
-    background: #c4c4c4;
+.quotes-card{
+    border: 1px solid #4f4f4f;
+    margin: 2rem;
+    height: 50%;
     width: 80%;
 }
 
 .options{
-    width: 100%;
+    border: 1px solid #4f4f4f;
+    height: 50%;
     display: flex;
 }
 
 .business-options,
 .personal-options{
-    display: flex;
-    border: 1px solid grey;
+    border: 1px solid #4f4f4f;
     width: 50%;
+    display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 1rem;
+}
+
+.business-options h2,
+.personal-options h2{
+    /* margin-right: 9rem; */
 }
