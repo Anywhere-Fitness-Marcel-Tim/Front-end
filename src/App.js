@@ -7,6 +7,7 @@ import RequestQuotePage from './pages/RequestQuotePage';
 import NotFound from './pages/NotFound';
 import Header from './components/Header';
 import Login from './pages/Login';
+import Logout from './pages/Logout';
 
 import {Routes, Route} from 'react-router-dom'
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/trainers' element={<TrainersPage />}/>
         <Route path='/quotes' element={<RequestQuotePage />}/>
         <Route path='/login' element={<Login />}/>
+        <Route path='/logout' element={<Logout />}/>
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>

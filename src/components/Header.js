@@ -12,6 +12,9 @@ function Header() {
                 <span className='Login-Link'>
                 <Link to='/login' >Login</Link>
                 </span>
+                <span className='Logout-Link'>
+                <Link to='/logout' >Logout</Link>
+                </span>
             </nav>
         </header>
   )
