@@ -5,7 +5,6 @@ import axios from 'axios';
 
 
 const Login = () => {
-    // const { navigate } = useNavigate();
     let navigate = useNavigate();
 
     const [creds, setCreds] = useState({
@@ -30,7 +29,6 @@ const Login = () => {
             .post('https://anywherefitness-back-end.herokuapp.com/api/auth/login', creds)
             .then((resp) => {
                 localStorage.setItem('token', resp.data.token);
-                // localStorage.setItem('user_id', resp.data.user.user_id);
                 navigate('/');
             })
             .catch((err) => {
