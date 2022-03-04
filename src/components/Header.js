@@ -1,8 +1,14 @@
 import React from 'react'
 import {Link, useLocation} from 'react-router-dom'
 import {Button} from '@mui/material'
-function Header() {
+import {connect} from 'react-redux'
+
+function Header(props) {
     const currentRoute = useLocation()
+    const {loggedIn} = props
+
+    console.log(loggedIn)
+
   return (
         <div>
             <header>
@@ -15,7 +21,7 @@ function Header() {
                 <Button variant='contained'><Link to='/login' >Login</Link></Button>
                 </span>
                 <span className='Logout-Link'>
-                <Link to='/logout' >Logout</Link>
+                {loggedIn && <Link to='/logout' >Logout</Link>}
                 </span>
             </nav>
         </header>
@@ -23,4 +29,10 @@ function Header() {
   )
 }
 
-export default Header
+const mapStateToProps = (state) => {
+    return {
+        loggedIn: state.isLoggedIn
+    }
+}
+
+export default connect(mapStateToProps)(Header)

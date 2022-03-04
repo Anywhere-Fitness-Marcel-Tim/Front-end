@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {loading, success, loggedIn, error } from '../actions/index'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -23,16 +24,19 @@ const Login = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e) => (dispatch) => {
         e.preventDefault();
+        dispatch(loading())
         axios
             .post('https://anywherefitness-back-end.herokuapp.com/api/auth/login', creds)
             .then((resp) => {
                 localStorage.setItem('token', resp.data.token);
+                dispatch(loggedIn(true))
                 navigate('/');
             })
             .catch((err) => {
                 console.log(err);
+                dispatch(error(err))
                 setError({ errorMessage: 'INVALID USERNAME/PASSWORD' });
             });
     };

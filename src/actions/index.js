@@ -15,6 +15,6 @@ export const error = (err) => {
     return {type: ERROR, payload: err}
 }
 
-export const loggedIn = () => {
-    return {type: LOGGED_IN}
+export const loggedIn = (status) => {
+    return {type: LOGGED_IN, payload: status}
 }
