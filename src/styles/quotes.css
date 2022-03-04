@@ -1,0 +1,31 @@
+.quotes-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+.quotes-card {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    background: #c4c4c4;
+    width: 80%;
+}
+
+.options{
+    width: 100%;
+    display: flex;
+}
+
+.business-options,
+.personal-options{
+    display: flex;
+    border: 1px solid grey;
+    width: 50%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}

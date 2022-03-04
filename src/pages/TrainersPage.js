@@ -35,7 +35,7 @@ function TrainersPage(props) {
               </div>
               <div className='bio'>
                 <h3>Bio</h3>
-                <p>Culpa anim labore aliquip labore consequat ad duis cupidatat. Veniam deserunt culpa labore cillum eu commodo non pariatur quis minim ex non. Labore eu voluptate aute nulla labore incididunt quis reprehenderit aliqua quis ex non.</p>
+                <p>Culpa anim labore aliquip labore consequat ad duis cupidatat. Veniam deserunt culpa labore cillum eu commodo non pariatur quis minim ex non.</p>
               </div>
               <div className='location'>
                 <h3>Location</h3>

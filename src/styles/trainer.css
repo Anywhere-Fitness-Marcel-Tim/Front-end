@@ -13,10 +13,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(100deg,#c4c4c4, #f1d4d4)
+}
+
+.view-profile:hover{
+    border: 1px solid rgba(158,176,211,1);
 }
 
 .trainer-card div {
-    width: 25%;
+    width: 30%;
+    padding: 1rem;
 }
 
 .view-profile {

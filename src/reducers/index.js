@@ -3,6 +3,7 @@ import {LOADING, SUCCESS, ERROR} from '../actions'
 export const initialState = {
     results: [],
     loading: false,
+    isLoggedIn: false,
     error: ''
 }
 export const reducer = (state = initialState, action)=>{
