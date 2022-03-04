@@ -65,7 +65,7 @@ nav a:hover:after {
 .Login-Link a {
     color: white;
     font-size: 0.9rem;
-    padding: 0;
+    padding: 2;
     text-transform: capitalize;
 }
 
@@ -81,4 +81,8 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.Logout-link a{
+    color: #6e4eff !important ;
 }

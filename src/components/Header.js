@@ -7,7 +7,7 @@ function Header(props) {
     const currentRoute = useLocation()
     const {loggedIn} = props
 
-    console.log(loggedIn)
+    console.log('Logged In',loggedIn)
 
   return (
         <div>
@@ -17,10 +17,11 @@ function Header(props) {
                 <Link className={currentRoute.pathname === '/'? 'current-page' : ''} to='/' >About us</Link>
                 <Link className={currentRoute.pathname === '/trainers'? 'current-page' : ''} to='/trainers' >Our Trainers</Link>
                 <Link className={currentRoute.pathname === '/quotes'? 'current-page' : ''} to='/quotes' >Request a quote</Link>
+                {loggedIn && <Link className={currentRoute.pathname === '/classes'? 'current-page' : ''} to='/classes'>Order a class</Link>}
                 <span className='Login-Link'>
-                <Button variant='contained'><Link to='/login' >Login</Link></Button>
+                {!loggedIn && <Button variant='contained'><Link to='/login' >Login</Link></Button>}
                 </span>
-                <span className='Logout-Link'>
+                <span className='Logout-link'>
                 {loggedIn && <Link to='/logout' >Logout</Link>}
                 </span>
             </nav>

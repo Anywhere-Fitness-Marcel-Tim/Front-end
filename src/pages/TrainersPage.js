@@ -1,28 +1,30 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import getTrainers from '../actions/getTrainers'
+import axios from 'axios'
+import { connect, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import {Button} from '@mui/material'
 import {ArrowForward} from '@mui/icons-material'
+import {loading, success, error} from '../actions/index'
+import spinner from '../assets/spinner.gif'
 
 function TrainersPage(props) {
-  const { users } = props
-  const mockUsers = [
-    {role_name: "trainer", user_email: 'trainer@gmail.com', user_id: 23, username: "Marcel13"},
-    {role_name: "trainer", user_email: 'trainer@gmail.com', user_id: 23, username: "Marcel13"},
-    {role_name: "trainer", user_email: 'trainer@gmail.com', user_id: 23, username: "Marcel13"},
-    {role_name: "trainer", user_email: 'trainer@gmail.com', user_id: 23, username: "Marcel13"},
-    {role_name: "trainer", user_email: 'trainer@gmail.com', user_id: 23, username: "Marcel13"},
-  ]
+  const { users, load } = props
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    // getTrainers()
+    dispatch(loading())
+    axios.get('https://anywherefitness-back-end.herokuapp.com/api/users')
+    .then(users => {
+        console.log(users)
+        dispatch(success(users))
+    }).catch(err => dispatch(error(err)))
   }, [])
 
   return (
     <div>
       <div className='trainer-container'>
-        {mockUsers.map(user => {
+        {load && <img src={spinner} alt='loading'/>}
+        {!load && users.map(user => {
           if(user.role_name === 'trainer'){
             return <div className='trainer-card'>
               <div className='trainer-info'>
@@ -58,9 +60,10 @@ function TrainersPage(props) {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.results.data
+    users: state.results.data,
+    load: state.loading
   }
 }
 
-export default connect(mapStateToProps, getTrainers)(TrainersPage)
+export default connect(mapStateToProps)(TrainersPage)
 

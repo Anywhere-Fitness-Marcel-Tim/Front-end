@@ -1,66 +1,82 @@
-import React, { useState } from 'react';
-import {loading, success, loggedIn, error } from '../actions/index'
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import {connect,  useDispatch} from 'react-redux'
+import axios from 'axios'
+import {loading, success, loggedIn, error, clearError } from '../actions/index'
+import {Button, TextField} from '@mui/material'
+import spinner from '../assets/spinner.gif'
 
-
-
-const Login = () => {
-    let navigate = useNavigate();
-
-    const [creds, setCreds] = useState({
+const Login = (props) => {
+    const { LoggedIn, result, errors, load } = props
+    const push = useNavigate();
+    const dispatch = useDispatch()
+    const [credentials, setCredentials] = useState({
         username: '',
-        password: '',
-    });
+        password: ''
+    })
 
-    const [error, setError] = useState({
-        errorMessage: '',
-    });
+    useEffect(() => {
+        dispatch(clearError())
+    }, [])
 
-    const handleChange = (e) => {
-        setCreds({
-            ...creds,
-            [e.target.name]: e.target.value,
-        });
-    };
+    const handleInput = (e) => {
+        setCredentials({
+            ...credentials,
+            [e.target.name]: e.target.value
+        })
+    }
 
-    const handleSubmit = (e) => (dispatch) => {
-        e.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault()
         dispatch(loading())
-        axios
-            .post('https://anywherefitness-back-end.herokuapp.com/api/auth/login', creds)
-            .then((resp) => {
-                localStorage.setItem('token', resp.data.token);
-                dispatch(loggedIn(true))
-                navigate('/');
-            })
-            .catch((err) => {
-                console.log(err);
-                dispatch(error(err))
-                setError({ errorMessage: 'INVALID USERNAME/PASSWORD' });
-            });
-    };
+        axios.post('https://anywherefitness-back-end.herokuapp.com/api/auth/login', credentials)
+        .then(resp => {
+            console.log(resp)
+            dispatch(success(resp))
+            dispatch(loggedIn())
+        }).catch(err => dispatch(error(err))) 
+    }
 
+
+    if(LoggedIn){
+        localStorage.setItem('token', result.data.token)
+        push('/')
+    }
+
+    const buttonStyle = {
+        padding: '0px',
+        width: '2rem',
+        height: '1.5rem',
+        margin: '1rem'
+    }
+
+    const inputStyle = {
+        height: '1.5rem'
+    }
     return (
         <div className='top-of-page'>
-            <div className='signup-page-container'>
-                <h1>Login</h1>
-                <div>
-                    <form onSubmit={handleSubmit}>
-                        Username:
-                        <input id='username' type='text' name='username' placeholder='Username' value={creds.username} onChange={handleChange} />
-                        Password:
-                        <input id='password' type='password' name='password' placeholder='Password' value={creds.password} onChange={handleChange} />
-                        <button id='submit'>Login</button>
-                    </form>
-                    <p id='error'>{error.errorMessage}</p>
-                </div>
-                <p>
-                    Don't have an account? <Link to='/signup'>Create one here!</Link>
-                </p>
+            <h2>Log In</h2>
+            <div className='login-card'>
+            <form onSubmit={() => handleSubmit}>
+                <TextField id="standard-basic" label="Username" variant="standard" name='username' onChange={handleInput} value={credentials.username} />
+                <TextField id="standard-basic" label="Password" variant="standard" name='password' onChange={handleInput} value={credentials.password} />
+                <Button onClick={handleSubmit} style={buttonStyle} variant='contained'>Login</Button>
+            </form>
+            <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
+            {load && <img src={spinner} alt='loading'/> }
+            {errors && <p className='error'>Error: invalid credentials</p>}
             </div>
         </div>
     );
 };
 
-export default Login;
+const mapStateToProps = state => {
+    return {
+        LoggedIn: state.isLoggedIn,
+        result: state.results,
+        errors: state.error.response,
+        load: state.loading,
+    }
+}
+
+export default connect(mapStateToProps, loading)(Login)

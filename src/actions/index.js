@@ -2,6 +2,8 @@ export const LOADING = 'LOADING'
 export const SUCCESS = 'SUCCESS'
 export const ERROR = 'ERROR'
 export const LOGGED_IN = 'LOGGED_IN'
+export const LOGGED_OUT = 'LOGGED_OUT'
+export const CLEAR_ERROR = 'CLEAR_ERROR'
 
 export const loading = () => {
     return {type: LOADING}
@@ -15,6 +17,14 @@ export const error = (err) => {
     return {type: ERROR, payload: err}
 }
 
-export const loggedIn = (status) => {
-    return {type: LOGGED_IN, payload: status}
+export const loggedIn = () => {
+    return {type: LOGGED_IN}
+}
+
+export const loggedOut = () => {
+    return {type: LOGGED_OUT}
+}
+
+export const clearError = () => {
+    return {type: CLEAR_ERROR}
 }
