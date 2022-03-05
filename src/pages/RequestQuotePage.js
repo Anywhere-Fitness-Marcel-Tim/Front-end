@@ -67,14 +67,27 @@ function RequestQuotePage() {
             </div>
           </div>
           <div className='contact-info'>
-            <label>Name:</label>
-            <input className='' type='text' value='' name='name' />
-            <label>Phone:</label>
-            <input className='' type='text' value='' name='Phone' />
-            <label>Email:</label>
-            <input className='' type='text' value='' name='email' />
-            <label>Accomodations:</label>
-            <input className='' type='text' value='' name='accomodations' />
+            
+            <div className='quote-name'>
+              <label>Name:</label>
+              <input className='' type='text' value='' name='name' />
+            </div>
+            
+            <div className='quote-phone'>
+              <label>Phone:</label>
+              <input className='' type='text' value='' name='Phone' />
+            </div>
+
+            <div className='quote-email'>
+              <label>Email:</label>
+              <input className='' type='text' value='' name='email' />
+            </div>
+            
+            <div className='quote-acc'>
+              <label>Accomodations:</label>
+              <input className='' type='text' value='' name='accomodations' />
+            </div>
+          
           </div>
         </div>
     </div>
