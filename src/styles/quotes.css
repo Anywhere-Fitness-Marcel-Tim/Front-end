@@ -10,6 +10,7 @@
     margin: 2rem;
     height: 50%;
     width: 80%;
+    background: linear-gradient(100deg,#c4c4c4, #f1d4d4);
 }
 
 .options{
@@ -28,7 +29,32 @@
     align-items: center;
 }
 
-.business-options h2,
-.personal-options h2{
-    /* margin-right: 9rem; */
+.contact-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.quote-name{
+    margin-right: 10px;
+}
+
+.quote-phone{
+    margin-right: 10px;
+}
+
+.quote-email{
+    margin-right: 10px;
+}
+
+.quote-acc{
+    margin-right: 10px;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
