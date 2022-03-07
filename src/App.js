@@ -13,12 +13,26 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Classes from './pages/Classes'
-
-
+import {connect, useDispatch} from 'react-redux'
 import {Routes, Route} from 'react-router-dom'
 import Signup from './pages/Signup';
+import { useEffect } from 'react';
+import { loggedIn, loggedOut } from './actions';
 
-function App() {
+function App(props) {
+  const {token} = props
+  const dispatch = useDispatch()
+  const localToken = localStorage.getItem('token')
+  console.log('LocalToken', localToken)
+
+  useEffect(() => {
+    if(localToken){
+      dispatch(loggedIn())
+    } else {
+      dispatch(loggedOut())
+    }
+  })
+
   return (
     <div className="App">
       <Header />
@@ -37,4 +51,11 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+    token: state.token
+  }
+}
+
+export default connect(mapStateToProps)(App);

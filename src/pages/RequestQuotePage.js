@@ -27,12 +27,11 @@ function RequestQuotePage() {
   }
 
   function MySecondFormControl(props) {
-    const radioGroup2 = useRadioGroup();
   
     let checked = false;
   
-    if (radioGroup2) {
-      checked = radioGroup2.value === props.value;
+    if (props.checked) {
+      checked = props.value === props.value;
     }
 
     return <StyledFormControlLabel checked={checked} {...props} />
@@ -44,9 +43,7 @@ function RequestQuotePage() {
         <h2>What are you looking for?</h2>
           <div className='options'>
             <div className='business-options'>
-            <RadioGroup name="use-radio-group2" defaultValue="Business">
             <MySecondFormControl value="Business" name='session' label="Business" control={<Radio />} />
-            </RadioGroup>
               <h2>Company Size</h2>
               <RadioGroup name="use-radio-group" defaultValue="first">
               <MyFormControlLabel value="first" label="SMB (10-100 employees)" control={<Radio />} />
@@ -55,9 +52,7 @@ function RequestQuotePage() {
               </RadioGroup>
             </div>
             <div className='personal-options'>
-            <RadioGroup name="use-radio-group2" defaultValue="Business">
             <MySecondFormControl value="Private" name='session' label="Private" control={<Radio />} />
-            </RadioGroup>
               <h2>Session Type</h2>
               <RadioGroup name="use-radio-group" defaultValue="first">
               <MyFormControlLabel value="first" label="Community Event" control={<Radio />} />

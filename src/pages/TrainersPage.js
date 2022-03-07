@@ -4,11 +4,11 @@ import { connect, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import {Button} from '@mui/material'
 import {ArrowForward} from '@mui/icons-material'
-import {loading, success, error} from '../actions/index'
+import {loading, success, error, setTrainers} from '../actions/index'
 import spinner from '../assets/spinner.gif'
 
 function TrainersPage(props) {
-  const { users, load } = props
+  const { users, load, succeeded } = props
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -17,6 +17,7 @@ function TrainersPage(props) {
     .then(users => {
         console.log(users)
         dispatch(success(users))
+        dispatch(setTrainers(users))
     }).catch(err => dispatch(error(err)))
   }, [])
 
@@ -24,7 +25,7 @@ function TrainersPage(props) {
     <div>
       <div className='trainer-container'>
         {load && <img src={spinner} alt='loading'/>}
-        {users && users.map(user => {
+        { users && users.map(user => {
           if(user.role_name === 'trainer'){
             return <div className='trainer-card'>
               <div className='trainer-info'>
@@ -55,8 +56,9 @@ function TrainersPage(props) {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.results.data,
-    load: state.loading
+    users: state.trainers.data,
+    load: state.loading,
+    succeeded: state.success.ArrowForward
   }
 }
 

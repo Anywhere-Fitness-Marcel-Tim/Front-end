@@ -1,34 +1,29 @@
-.quotes-container{
+.quotes-container {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.quotes-card{
+.quotes-card {
     border: 1px solid #4f4f4f;
     margin: 2rem;
     height: 50%;
     width: 80%;
 }
 
-.options{
+.options {
     border: 1px solid #4f4f4f;
     height: 50%;
     display: flex;
 }
 
 .business-options,
-.personal-options{
+.personal-options {
     border: 1px solid #4f4f4f;
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.business-options h2,
-.personal-options h2{
-    /* margin-right: 9rem; */
 }

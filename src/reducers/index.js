@@ -1,22 +1,27 @@
-import {LOADING, SUCCESS, ERROR, LOGGED_IN, LOGGED_OUT, CLEAR_ERROR} from '../actions'
+import {LOADING, SUCCESS, ERROR, LOGGED_IN, LOGGED_OUT, CLEAR_ERROR, SET_TRAINERS} from '../actions'
 
 export const initialState = {
     results: [],
     loading: false,
     isLoggedIn: false,
-    error: false
+    error: false,
+    success: false,
+    trainers: [],
 }
+
 export const reducer = (state = initialState, action)=>{
     switch(action.type){
         case LOADING:
             return{
                 ...state,
-                loading: true
+                loading: true,
+                success: false
             }
         case SUCCESS:
             return {
                 ...state,
                 loading: false,
+                success: true,
                 results: action.payload
             }
         case ERROR:
@@ -41,6 +46,11 @@ export const reducer = (state = initialState, action)=>{
                 ...state,
                 loading: false,
                 error: ''
+            }
+        case SET_TRAINERS:
+            return {
+                ...state,
+                trainers: action.payload
             }
         default:
             return state

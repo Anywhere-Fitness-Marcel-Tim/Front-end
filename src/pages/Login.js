@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {connect,  useDispatch} from 'react-redux'
 import axios from 'axios'
-import {loading, success, loggedIn, error, clearError } from '../actions/index'
+import {loading, success, loggedIn, error, clearError, setToken } from '../actions/index'
 import {Button, TextField} from '@mui/material'
 import spinner from '../assets/spinner.gif'
 
@@ -33,13 +33,13 @@ const Login = (props) => {
         .then(resp => {
             console.log(resp)
             dispatch(success(resp))
+            localStorage.setItem('token', resp.data.token)
             dispatch(loggedIn())
         }).catch(err => dispatch(error(err))) 
     }
 
 
     if(LoggedIn){
-        localStorage.setItem('token', result.data.token)
         push('/')
     }
 

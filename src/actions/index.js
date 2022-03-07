@@ -4,6 +4,8 @@ export const ERROR = 'ERROR'
 export const LOGGED_IN = 'LOGGED_IN'
 export const LOGGED_OUT = 'LOGGED_OUT'
 export const CLEAR_ERROR = 'CLEAR_ERROR'
+export const SET_TRAINERS = 'SET_TRAINERS'
+
 
 export const loading = () => {
     return {type: LOADING}
@@ -27,4 +29,8 @@ export const loggedOut = () => {
 
 export const clearError = () => {
     return {type: CLEAR_ERROR}
+}
+
+export const setTrainers = (trainers) => {
+    return {type: SET_TRAINERS, payload: trainers}
 }
