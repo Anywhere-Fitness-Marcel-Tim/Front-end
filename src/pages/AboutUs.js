@@ -1,8 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Button} from '@mui/material'
+import {connect} from 'react-redux'
 
-function AboutUs() {
+function AboutUs(props) {
+  const { isLoggedIn } = props
 
   return (
     <div className='about-container'>
@@ -11,7 +13,7 @@ function AboutUs() {
           <div className='about-top-right-content'>
           <h2>Bring The Fitness To You</h2>
           <h2>Anywhere...</h2>
-          <Link to='/login'><Button variant='contained'>Schedule Now!</Button></Link>
+          <Link to={isLoggedIn ? '/classes' : '/login'} ><Button variant='contained'>Schedule Now!</Button></Link>
           </div>
         </div>
       </div>
@@ -37,4 +39,11 @@ function AboutUs() {
   )
 }
 
-export default AboutUs
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+    isLoggedIn: state.isLoggedIn
+  }
+}
+
+export default connect(mapStateToProps)(AboutUs)
