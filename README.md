@@ -1,2 +1,2 @@
 # Anywhere-Fitness Front End
-Unit 4 build week project (anywhere fitness) including Marcel and Tim
+A website that enables any user to schedule training sessions in an environment and trainers of choice at Anywhere Fitness.
